@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
     return (
         <>
-            <section id="spacer"></section>
+            <h1>あいうえお</h1>
         </>
     );
 }
