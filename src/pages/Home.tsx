@@ -1,14 +1,14 @@
 import "./css/Home.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import Post from "../components/Post";
 
 function Home() {
     return (
         <>
             <Header />
             <main>
-                <h1>ホームだよ</h1>
+                <Post />
             </main>
             <Footer />
         </>
