@@ -1,0 +1,19 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 12px;
+    gap: 80px;
+    background-color: #fff;
+    border-top: 1px solid #bbb;
+    img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+}
