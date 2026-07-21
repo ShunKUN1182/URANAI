@@ -9,6 +9,9 @@ function Home() {
             <Header />
             <main>
                 <Post />
+                <Post />
+                <Post />
+                <Post />
             </main>
             <Footer />
         </>
