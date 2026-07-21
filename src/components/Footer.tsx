@@ -5,14 +5,27 @@ import iconFriend from "../assets/icons/icon_friend.png";
 import iconFriendActive from "../assets/icons/icon_friend_active.png";
 import iconDM from "../assets/icons/icon_dm.png";
 import iconDMActive from "../assets/icons/icon_dm_active.png";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
     return (
         <>
             <footer>
-                <img src={iconHome} alt="" />
-                <img src={iconFriend} alt="" />
-                <img src={iconDM} alt="" />
+                <NavLink to="/">
+                    {({ isActive }) => (
+                        <img src={isActive ? iconHomeActive : iconHome} alt="HomeIcon" />
+                    )}
+                </NavLink>
+                <NavLink to="/friend">
+                    {({ isActive }) => (
+                        <img src={isActive ? iconFriendActive : iconFriend} alt="HomeIcon" />
+                    )}
+                </NavLink>
+                <NavLink to="/dm">
+                    {({ isActive }) => (
+                        <img src={isActive ? iconDMActive : iconDM} alt="HomeIcon" />
+                    )}
+                </NavLink>
             </footer>
         </>
     );
