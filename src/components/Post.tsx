@@ -1,17 +1,33 @@
 import "./css/post.css";
-import daikitiIcon from "../assets/rarelyIcons/rarely_icon_daikiti.png";
-import hitujii from "../assets/characters/hitujii.png";
 
-function Post() {
+type PostProps = {
+    userName: string;
+    userId: string;
+    userIcon: string;
+    fortuneIcon: string;
+    characterImage: string;
+    characterName: string;
+    fortuneMessage: string;
+};
+
+function Post({
+    userName,
+    userId,
+    userIcon,
+    fortuneIcon,
+    characterImage,
+    characterName,
+    fortuneMessage,
+}: PostProps) {
     return (
         <>
             <div className="card_box">
-                <img src="./" alt="仮" className="icon" />
+                <img src={userIcon ? userIcon : "./"} alt="仮" className="icon" />
                 <div className="card_wrap">
                     <div className="card_head">
                         <div className="card_text">
-                            <h2>うら子</h2>
-                            <p>@uranai_123</p>
+                            <h2>{userName}</h2>
+                            <p>{userId}</p>
                         </div>
                         <div className="card_details">
                             <span></span>
@@ -20,11 +36,11 @@ function Post() {
                         </div>
                     </div>
                     <div className="card_front_wrap">
-                        <img src={daikitiIcon} alt="" />
-                        <img src={hitujii} alt="" className="charaImg" />
-                        <h2>ひつじい</h2>
+                        <img src={fortuneIcon} alt="" />
+                        <img src={characterImage} alt="" className="charaImg" />
+                        <h2>{characterName}</h2>
                         <h3>今日の格言</h3>
-                        <p>おぬしは今日大事な場面で居眠りしてしまうのじゃ気をつけるのじゃぞ</p>
+                        <p>{fortuneMessage}</p>
                     </div>
                 </div>
             </div>
