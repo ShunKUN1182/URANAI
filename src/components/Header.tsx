@@ -5,7 +5,7 @@ function Header() {
     return (
         <>
             <header>
-                <img src="" alt="仮" />
+                <img src="./" alt="仮" />
                 <img src={bellIcon} alt="" />
             </header>
         </>

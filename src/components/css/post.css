@@ -1,0 +1,79 @@
+.card_box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 12px 0;
+    border-bottom: 1px #ccc solid;
+    .icon {
+        width: 50px;
+        height: 50px;
+        background-color: tomato;
+        border-radius: 100%;
+    }
+    .card_wrap {
+        width: calc(100% - 50px);
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .card_head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .card_text {
+                display: flex;
+                gap: 8px;
+                h2 {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                p {
+                    font-size: 12px;
+                    color: #888;
+                }
+            }
+            .card_details {
+                display: flex;
+                gap: 4px;
+                span {
+                    width: 4px;
+                    height: 4px;
+                    background-color: #bbb;
+                    border-radius: 100%;
+                }
+            }
+        }
+        .card_front_wrap {
+            background-image: url("../../assets/background/card_front_bg.png");
+            background-size: contain;
+            height: 522px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                object-fit: cover;
+                width: 120px;
+                margin-top: 50px;
+            }
+            .charaImg {
+                width: 150px;
+                margin-top: 20px;
+            }
+            h2 {
+                font-size: 24px;
+                margin-top: 24px;
+            }
+            h3 {
+                font-size: 20px;
+                margin-top: 30px;
+            }
+            p {
+                margin-top: 12px;
+                font-size: 14px;
+                padding: 0 70px;
+                text-align: center;
+            }
+        }
+    }
+}
