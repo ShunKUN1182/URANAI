@@ -14,3 +14,104 @@
         font-weight: bold;
     }
 }
+
+.collection_main {
+    margin: 0;
+}
+
+.complete_wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 20px 0;
+    h2 {
+        font-size: 16px;
+    }
+    span {
+        width: 100%;
+        height: 16px;
+        background-color: #d9d9d9;
+        border-radius: 32px;
+        position: relative;
+        &::after {
+            content: "";
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 66%;
+            height: 16px;
+            border-radius: 32px;
+            background-color: #ffc854;
+        }
+    }
+}
+
+.filter_wrap {
+    display: flex;
+    gap: 8px;
+    margin: 16px 20px;
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background-color: #2a174f;
+        color: #fff;
+        width: 60px;
+        height: 32px;
+        font-weight: bold;
+    }
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background-color: #e9e9e9;
+        color: #2a174f;
+        width: 72px;
+        height: 32px;
+        font-weight: bold;
+    }
+}
+
+.collection_wrap {
+    margin: 32px 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    justify-items: center;
+    .collection_card {
+        width: 110px;
+        height: 130px;
+        background-image: url("../../assets/background/mini_card_bg.png");
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        img {
+            width: 65px;
+            height: 65px;
+            margin: 12px auto;
+        }
+        h2 {
+            font-size: 10px;
+        }
+    }
+    .secret {
+        position: relative;
+        &::after {
+            content: "?";
+            color: #fff;
+            font-size: 86px;
+            font-weight: bold;
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 130px;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
