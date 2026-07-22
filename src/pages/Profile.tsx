@@ -8,7 +8,7 @@ import daikitiIcon from "../assets/rarelyIcons/rarely_icon_daikiti.png";
 function Profile() {
     return (
         <>
-            <div className="header"></div>
+            <div className="header￥"></div>
             <main>
                 <div className="profile_wrap">
                     <img src={myIcon} alt="" />

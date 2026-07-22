@@ -17,6 +17,16 @@ function Home() {
             <Header />
             <main>
                 <Post
+                    userName="フクシマです"
+                    userId="@ura_koko"
+                    userIcon={kaba}
+                    fortuneIcon={daikitiIcon}
+                    characterImage={kaba}
+                    characterName="カバ太郎"
+                    fortuneMessage="おばかなことをしてみんなの注目を集めること間違い無しだね。"
+                />
+
+                <Post
                     userName="うら子"
                     userId="@ura_koko"
                     userIcon={kaba}
@@ -35,8 +45,8 @@ function Home() {
                     fortuneMessage="おぬしは今日大事な場面で居眠りしてしまうのじゃ気をつけるのじゃぞ"
                 />
                 <Post
-                    userName="フクシマ"
-                    userId="@fksm_2006"
+                    userName="ほそかわ"
+                    userId="@hskw_2007"
                     userIcon={kaba}
                     fortuneIcon={kyouIcon}
                     characterImage={ghost}
