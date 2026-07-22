@@ -40,6 +40,42 @@ function Collection() {
                         <img src={hitujii} alt="" />
                         <h2>ひつじい</h2>
                     </div>
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>{" "}
+                    <div className="collection_card secret">
+                        <img src={hitujii} alt="" />
+                        <h2>ひつじい</h2>
+                    </div>
                 </div>
             </main>
             <Footer />

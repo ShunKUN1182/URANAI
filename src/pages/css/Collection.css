@@ -74,7 +74,7 @@
 }
 
 .collection_wrap {
-    margin: 32px 20px 0;
+    margin: 32px 20px 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
@@ -112,6 +112,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 8px;
         }
     }
 }
