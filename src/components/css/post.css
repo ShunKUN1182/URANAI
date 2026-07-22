@@ -8,8 +8,8 @@
     .icon {
         width: 50px;
         height: 50px;
-        background-color: tomato;
         border-radius: 100%;
+        border: 0.2px solid #bbb;
     }
     .card_wrap {
         width: calc(100% - 50px);
