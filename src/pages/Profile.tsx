@@ -4,11 +4,14 @@ import myIcon from "../assets/icons/myIcon.jpeg";
 import Post from "../components/Post";
 import kaba from "../assets/characters/kaba.png";
 import daikitiIcon from "../assets/rarelyIcons/rarely_icon_daikiti.png";
+import ghost from "../assets/characters/ghost.png";
+import kyouIcon from "../assets/rarelyIcons/icon_kyou.png";
+import { Link } from "react-router-dom";
 
 function Profile() {
     return (
         <>
-            <div className="header￥"></div>
+            <div className="header"></div>
             <main>
                 <div className="profile_wrap">
                     <img src={myIcon} alt="" />
@@ -36,13 +39,22 @@ function Profile() {
                     <div>プロフィールを共有</div>
                 </div>
                 <div className="collection_btn_wrap">
-                    <div>コレクション</div>
-                    <div>実績</div>
+                    <Link to="/collection">コレクション</Link>
+                    <Link to="/">実績</Link>
                 </div>
                 <Post
-                    userName="うら子"
-                    userId="@ura_koko"
-                    userIcon={kaba}
+                    userName="フクシマです"
+                    userId="@daikiti_0614"
+                    userIcon={myIcon}
+                    fortuneIcon={kyouIcon}
+                    characterImage={ghost}
+                    characterName="しょんぼ霊"
+                    fortuneMessage="悲しまないで、、、僕が悲しくなるから、、、"
+                />
+                <Post
+                    userName="フクシマです"
+                    userId="@daikiti_0614"
+                    userIcon={myIcon}
                     fortuneIcon={daikitiIcon}
                     characterImage={kaba}
                     characterName="カバ太郎"

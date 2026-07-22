@@ -10,6 +10,7 @@ import kyouIcon from "../assets/rarelyIcons/icon_kyou.png";
 import hitujii from "../assets/characters/hitujii.png";
 import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";
+import myIcon from "../assets/icons/myIcon.jpeg";
 
 function Home() {
     return (
@@ -18,12 +19,12 @@ function Home() {
             <main>
                 <Post
                     userName="フクシマです"
-                    userId="@ura_koko"
-                    userIcon={kaba}
-                    fortuneIcon={daikitiIcon}
-                    characterImage={kaba}
-                    characterName="カバ太郎"
-                    fortuneMessage="おばかなことをしてみんなの注目を集めること間違い無しだね。"
+                    userId="@daikiti_0614"
+                    userIcon={myIcon}
+                    fortuneIcon={kyouIcon}
+                    characterImage={ghost}
+                    characterName="しょんぼ霊"
+                    fortuneMessage="悲しまないで、、、僕が悲しくなるから、、、"
                 />
 
                 <Post

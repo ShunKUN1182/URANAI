@@ -74,10 +74,12 @@
     justify-content: space-between;
     gap: 12px;
     margin: 24px 20px;
-    div {
+    a {
         display: flex;
         justify-content: center;
         align-items: center;
+        text-decoration: none;
+        color: #000;
         font-size: 16px;
         font-weight: bold;
         width: 100%;
