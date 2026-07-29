@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./css/Uranai.css";
 import kaba from "../assets/characters/kaba.png";
 import cardBack from "../assets/background/card_back_bg.png";
 import kyouIcon from "../assets/rarelyIcons/icon_kyou.png";
 import ghost from "../assets/characters/ghost.png";
-import { Link } from "react-router-dom";
 
 function Uranai() {
     const [isResultVisible, setIsResultVisible] = useState(false);

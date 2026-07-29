@@ -2,6 +2,8 @@ import "./css/Home.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Post from "../components/Post";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 // 画像インポートたちだよ
 import daikitiIcon from "../assets/rarelyIcons/rarely_icon_daikiti.png";
@@ -13,6 +15,18 @@ import ghost from "../assets/characters/ghost.png";
 import myIcon from "../assets/icons/myIcon.jpeg";
 
 function Home() {
+    const navigate = useNavigate();
+    const today = new Date();
+    const todayString = today.toLocaleDateString();
+    const loginCheck = localStorage.getItem("todayLogin");
+
+    useEffect(() => {
+        if (loginCheck !== todayString) {
+            navigate("/uranai");
+            localStorage.setItem("todayLogin", todayString);
+        }
+    }, []);
+
     return (
         <>
             <Header />
