@@ -5,6 +5,8 @@ import DM from "./pages/DM";
 import Profile from "./pages/Profile";
 import Uranai from "./pages/Uranai";
 import Collection from "./pages/Collection";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
     return (
@@ -17,6 +19,8 @@ function App() {
                     <Route path="/collection" element={<Collection />} />
                     <Route path="/friend" element={<Friend />} />
                     <Route path="/dm" element={<DM />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                 </Routes>
             </BrowserRouter>
         </>
