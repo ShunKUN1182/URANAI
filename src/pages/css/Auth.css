@@ -56,9 +56,3 @@
 .auth-page--signup .auth-form { margin-top: 21px; }
 .auth-page--signup .auth-form input { margin-bottom: 12px; }
 .auth-page--signup .auth-form__submit { margin-top: 8px; }
-
-@media (min-width: 640px) {
-    .auth-page { align-items: center; padding-top: 42px; padding-bottom: 42px; }
-    .auth-page--signup { padding-top: 24px; padding-bottom: 24px; }
-    .auth-page__character { right: calc(50% - 330px); bottom: 28px; }
-}

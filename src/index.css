@@ -2,3 +2,51 @@ main {
     margin-top: 80px;
     margin-bottom: 48px;
 }
+
+/* Keep the application in its mobile viewport on larger screens. */
+html,
+body {
+    min-height: 100%;
+    background-color: #fff;
+}
+
+#root {
+    min-height: 100dvh;
+    background-color: #fff;
+}
+
+@media (min-width: 391px) {
+    #root {
+        width: 390px;
+        margin: 0 auto;
+    }
+
+    /* Fixed navigation is outside #root's normal layout flow. */
+    html body header,
+    html body footer {
+        width: 390px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    body::before,
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        z-index: 101;
+        width: 1px;
+        /* background-color: #d9d9d9; */
+        background-color: #ccc;
+        pointer-events: none;
+    }
+
+    body::before {
+        left: calc(50% - 196px);
+    }
+
+    body::after {
+        left: calc(50% + 195px);
+    }
+}
