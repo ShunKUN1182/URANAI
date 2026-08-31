@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/Auth.css";
 import kaba from "../assets/characters/kaba.png";
 import logo from "../assets/logo.png";
 import { useState } from "react";
 
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = async (event: React.FormEvent<HTMLElement>) => {
@@ -22,6 +23,10 @@ function Login() {
             });
             const data = await response.json();
             console.log(data);
+            if (data.success) {
+                localStorage.setItem("user", JSON.stringify(data.user));
+                navigate("/");
+            }
         } catch (error) {
             console.log(error);
         }

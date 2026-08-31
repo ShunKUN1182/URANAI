@@ -19,6 +19,9 @@ function Home() {
     const today = new Date();
     const todayString = today.toLocaleDateString();
     const loginCheck = localStorage.getItem("todayLogin");
+    const userData = localStorage.getItem("user");
+    const user = userData ? JSON.parse(userData) : null;
+    console.log("ログインユーザー", user);
 
     useEffect(() => {
         if (loginCheck !== todayString) {
