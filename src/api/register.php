@@ -60,6 +60,7 @@ try {
 } catch (PDOException $error) {
   echo json_encode([
       "success" => false,
-      "message" => "新規登録に失敗しました"
+      "message" => "新規登録に失敗しました",
+      "error" => $error->getMessage()
   ]);
 }

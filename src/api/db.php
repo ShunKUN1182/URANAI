@@ -17,7 +17,7 @@ try {
     echo json_encode([
         "success" => false,
         "message" => "DB接続に失敗しました"
-    ])
-}
+    ]);
+};
 
 ?>
