@@ -4,13 +4,20 @@ $config = require __DIR__ . "/config.php";
 
 try {
     $pdo = new PDO(
-      $config["dsn"], 
-      $config["user"], 
-      $config["password"],
+        $config["dsn"], 
+        $config["user"], 
+        $config["password"],
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
     );
-    echo "DB接続成功";
 } catch (PDOException $e) {
-    echo "DB接続失敗";
+    http_response_code(500);
+    
+    echo json_encode([
+        "success" => false,
+        "message" => "DB接続に失敗しました"
+    ])
 }
 
 ?>
