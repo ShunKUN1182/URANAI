@@ -35,6 +35,12 @@ function Uranai() {
 
     async function getFortune() {
         try {
+            const user = JSON.parse(localStorage.getItem("user") || "null");
+
+            if (!user) {
+                throw new Error("ログイン情報がありません");
+            }
+
             const response = await fetch("https://fksm.tonkotsu.jp/uranai/fortune.php", {
                 method: "POST",
             });
@@ -48,6 +54,24 @@ function Uranai() {
             }
 
             setFortuneData(data);
+
+            const saveResponse = await fetch("https://fksm.tonkotsu.jp/uranai/save_fortune.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    user_id: user.id,
+                    character_id: data.character.id,
+                    fortune_id: data.fortune.id,
+                }),
+            });
+
+            const saveData = await saveResponse.json();
+            console.log("保存結果:", saveData);
+            if (!saveData.success) {
+                throw new Error(saveData.message);
+            }
         } catch (error) {
             console.error(error);
         }
@@ -84,7 +108,7 @@ function Uranai() {
                         <button
                             type="button"
                             className="fortune_card_button"
-                            onClick={() => {
+                            onClick={async () => {
                                 getFortune();
                                 setIsFortuneRevealed(true);
                             }}
