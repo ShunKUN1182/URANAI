@@ -1,15 +1,57 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./css/Uranai.css";
-import kaba from "../assets/characters/kaba.png";
 import cardBack from "../assets/background/card_back_bg.png";
-import kyouIcon from "../assets/rarelyIcons/icon_kyou.png";
+
+import kyou_kichi from "../assets/rarelyIcons/kyou_kichi.png";
+import kaba_kichi from "../assets/rarelyIcons/kaba_kichi.png";
+import rei_kichi from "../assets/rarelyIcons/rei_kichi.png";
+import hituji_kichi from "../assets/rarelyIcons/hituji_kichi.png";
+import jii_kichi from "../assets/rarelyIcons/jii_kichi.png";
+import baka_kichi from "../assets/rarelyIcons/baka_kichi.png";
+
+import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";
+import hitujii from "../assets/characters/hitujii.png";
 
 function Uranai() {
     const [isResultVisible, setIsResultVisible] = useState(false);
     const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
     const [isFortuneRevealed, setIsFortuneRevealed] = useState(false);
+    const [fortuneData, setFortuneData] = useState<any>(null);
+    const characterImages: { [key: string]: string } = {
+        kaba: kaba,
+        ghost: ghost,
+        hitujii: hitujii,
+    };
+    const fortuneImages: { [key: string]: string } = {
+        kaba_kichi: kaba_kichi,
+        rei_kichi: rei_kichi,
+        hituji_kichi: hituji_kichi,
+        jii_kichi: jii_kichi,
+        baka_kichi: baka_kichi,
+        kyou_kichi: kyou_kichi,
+    };
+
+    async function getFortune() {
+        try {
+            const response = await fetch("https://fksm.tonkotsu.jp/uranai/fortune.php", {
+                method: "POST",
+            });
+
+            const data = await response.json();
+
+            console.log(data);
+
+            if (!data.success) {
+                throw new Error(data.message);
+            }
+
+            setFortuneData(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     function selectCard(index: number) {
         setSelectedCardIndex(index);
@@ -20,13 +62,19 @@ function Uranai() {
             <div className="uranai_wrap">
                 {isFortuneRevealed ? (
                     <>
-                        <div className="card_front_wrap">
-                            <img src={kyouIcon} alt="" />
-                            <img src={ghost} alt="" className="charaImg" />
-                            <h2>しょんぼ霊</h2>
-                            <h3>今日の格言</h3>
-                            <p>悲しまないで、、、僕が悲しくなるから、、、</p>
-                        </div>
+                        {fortuneData && (
+                            <div className="card_front_wrap">
+                                <img src={fortuneImages[fortuneData.fortune.image]} alt="" />
+                                <img
+                                    src={characterImages[fortuneData.character.image]}
+                                    alt=""
+                                    className="charaImg"
+                                />
+                                <h2>{fortuneData.character.name}</h2>
+                                <h3>今日の格言</h3>
+                                <p>{fortuneData.fortune.message}</p>
+                            </div>
+                        )}
                         <Link className="homeBtn" to="/">
                             ホームに戻る
                         </Link>
@@ -36,7 +84,10 @@ function Uranai() {
                         <button
                             type="button"
                             className="fortune_card_button"
-                            onClick={() => setIsFortuneRevealed(true)}
+                            onClick={() => {
+                                getFortune();
+                                setIsFortuneRevealed(true);
+                            }}
                             aria-label="占い結果を表示する"
                         >
                             <img
@@ -63,7 +114,7 @@ function Uranai() {
                     ))}
                 </div>
                 <div className="chara_wrap">
-                    <p>どれか選ぶかばー</p>
+                    <p>どれに選ぶかばー</p>
                     <img src={kaba} alt="カバのキャラクター" />
                 </div>
             </div>

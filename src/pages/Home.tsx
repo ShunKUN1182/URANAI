@@ -8,7 +8,7 @@ import { useEffect } from "react";
 // 画像インポートたちだよ
 import daikitiIcon from "../assets/rarelyIcons/rarely_icon_daikiti.png";
 import tyuukitiIcon from "../assets/rarelyIcons/icon_tyuukiti.png";
-import kyouIcon from "../assets/rarelyIcons/icon_kyou.png";
+import kyouIcon from "../assets/rarelyIcons/kyou_kichi.png";
 import hitujii from "../assets/characters/hitujii.png";
 import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";

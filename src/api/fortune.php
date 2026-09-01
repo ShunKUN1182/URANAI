@@ -19,7 +19,7 @@ try {
     throw new Exception("キャラクターが見つかりません");
   }
 
-  $sql = "SELECT id, name, message FROM fortunes WHERE character_id = :character_id ORDER BY RAND() LIMIT 1";
+  $sql = "SELECT id, name, message, image FROM fortunes WHERE character_id = :character_id ORDER BY RAND() LIMIT 1";
   $stmt = $pdo->prepare($sql);
   $stmt->execute([
     ":character_id" => $character["id"]

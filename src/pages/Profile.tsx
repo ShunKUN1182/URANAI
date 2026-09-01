@@ -5,7 +5,7 @@ import Post from "../components/Post";
 import kaba from "../assets/characters/kaba.png";
 import daikitiIcon from "../assets/rarelyIcons/rarely_icon_daikiti.png";
 import ghost from "../assets/characters/ghost.png";
-import kyouIcon from "../assets/rarelyIcons/icon_kyou.png";
+import kyouIcon from "../assets/rarelyIcons/kyou_kichi.png";
 import { Link } from "react-router-dom";
 
 function Profile() {
