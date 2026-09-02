@@ -8,11 +8,17 @@ html,
 body {
     min-height: 100%;
     background-color: #fff;
+    /* Prevent overflowing page content from moving the whole screen sideways.
+       Header and footer are fixed, so body-level horizontal scrolling otherwise
+       makes only the main content appear to slide away. */
+    overflow-x: hidden;
 }
 
 #root {
     min-height: 100dvh;
     background-color: #fff;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 @media (min-width: 391px) {

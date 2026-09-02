@@ -12,7 +12,10 @@
         border: 0.2px solid #bbb;
     }
     .card_wrap {
-        width: calc(100% - 50px);
+        /* `flex: 1` accounts for the icon and the parent `gap`, unlike the
+           previous width calculation which made the card extend to the right. */
+        flex: 1;
+        min-width: 0;
         height: 600px;
         display: flex;
         flex-direction: column;
