@@ -23,8 +23,16 @@
     display: flex;
     flex-direction: column;
     margin: 32px 20px 0;
-    h2 {
-        font-size: 16px;
+    .complete_text {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            font-size: 16px;
+        }
+        p {
+            font-size: 16px;
+            font-weight: bold;
+        }
     }
     span {
         width: 100%;
@@ -37,7 +45,7 @@
             top: 0;
             left: 0;
             position: absolute;
-            width: 66%;
+            width: var(--completion-rate, 0%);
             height: 16px;
             border-radius: 32px;
             background-color: #ffc854;
@@ -49,27 +57,27 @@
     display: flex;
     gap: 8px;
     margin: 16px 20px;
-    span {
+    button {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 8px;
-        background-color: #2a174f;
-        color: #fff;
-        width: 60px;
-        height: 32px;
-        font-weight: bold;
-    }
-    p {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
+        border: 0;
         background-color: #e9e9e9;
         color: #2a174f;
-        width: 72px;
         height: 32px;
         font-weight: bold;
+        cursor: pointer;
+        &:first-child {
+            width: 60px;
+        }
+        &:last-child {
+            width: 72px;
+        }
+        &.is-active {
+            background-color: #2a174f;
+            color: #fff;
+        }
     }
 }
 

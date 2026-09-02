@@ -5,12 +5,21 @@ import iconBell from "../assets/icons/icon_bell.png";
 import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";
 import hitujii from "../assets/characters/hitujii.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type CSSProperties } from "react";
 
 import { Link } from "react-router-dom";
 
 function Collection() {
     const [characters, setCharacters] = useState<any[]>([]);
+    const [ownedCharacterIds, setOwnedCharacterIds] = useState<number[]>([]);
+    const [showOwnedOnly, setShowOwnedOnly] = useState(false);
+    const completionRate = characters.length
+        ? Math.floor((ownedCharacterIds.length / characters.length) * 100)
+        : 0;
+    const displayedCharacters = showOwnedOnly
+        ? characters.filter((character) => ownedCharacterIds.includes(character.id))
+        : characters;
+
     const characterImages: { [key: string]: string } = {
         kaba: kaba,
         ghost: ghost,
@@ -34,8 +43,28 @@ function Collection() {
             console.error(error);
         }
     }
+
+    async function getUserCharacters() {
+        const user = JSON.parse(localStorage.getItem("user") || "null");
+
+        const response = await fetch("https://fksm.tonkotsu.jp/uranai/user_characters.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+            }),
+        });
+
+        const data = await response.json();
+        setOwnedCharacterIds(data.character_ids);
+        console.log(data);
+    }
+
     useEffect(() => {
         getCharacters();
+        getUserCharacters();
     }, []);
     return (
         <>
@@ -48,20 +77,44 @@ function Collection() {
             </div>
             <main className="collection_main">
                 <div className="complete_wrap">
-                    <h2>コンプリート率</h2>
-                    <span id="bar"></span>
+                    <div className="complete_text">
+                        <h2>コンプリート率</h2>
+                        <p>{completionRate}%</p>
+                    </div>
+                    <span
+                        id="bar"
+                        style={{ "--completion-rate": `${completionRate}%` } as CSSProperties}
+                    ></span>
                 </div>
                 <div className="filter_wrap">
-                    <span>すべて</span>
-                    <p>所持済み</p>
+                    <button
+                        type="button"
+                        className={!showOwnedOnly ? "is-active" : ""}
+                        onClick={() => setShowOwnedOnly(false)}
+                    >
+                        すべて
+                    </button>
+                    <button
+                        type="button"
+                        className={showOwnedOnly ? "is-active" : ""}
+                        onClick={() => setShowOwnedOnly(true)}
+                    >
+                        所持済み
+                    </button>
                 </div>
                 <div className="collection_wrap">
-                    {characters.map((character) => (
-                        <div className="collection_card" key={character.id}>
-                            <img src={characterImages[character.image]} alt="" />
-                            <h2>{character.name}</h2>
-                        </div>
-                    ))}
+                    {displayedCharacters.map((character) => {
+                        const inOwned = ownedCharacterIds.includes(character.id);
+                        return (
+                            <div
+                                className={inOwned ? "collection_card" : "collection_card secret"}
+                                key={character.id}
+                            >
+                                <img src={characterImages[character.image]} alt="" />
+                                <h2>{character.name}</h2>
+                            </div>
+                        );
+                    })}
                 </div>
             </main>
             <Footer />
