@@ -30,6 +30,7 @@ try {
         SELECT
             user_fortunes.id,
             user_fortunes.created_at,
+            users.id AS user_db_id,
             users.user_id,
             users.user_name,
             users.icon AS user_icon,
