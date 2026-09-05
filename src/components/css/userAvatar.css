@@ -1,0 +1,7 @@
+.user-avatar--generated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+}

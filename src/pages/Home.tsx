@@ -38,7 +38,6 @@ type FeedPost = {
 };
 
 const POSTS_PER_PAGE = 5;
-const avatarColors = ["#ef9a9a", "#ffcc80", "#fff59d", "#a5d6a7", "#80cbc4", "#81d4fa", "#9fa8da", "#ce93d8", "#f48fb1"];
 const characterImages: Record<string, string> = {
     kaba,
     ghost,
@@ -60,11 +59,6 @@ const fortuneImages: Record<string, string> = {
     dai_kichi: daiKichi,
     tyu_kichi: tyuukichi,
 };
-
-function getAvatarColor(userDatabaseId: number) {
-    const lastDigit = Math.abs(Number(userDatabaseId)) % 10;
-    return lastDigit === 9 ? undefined : avatarColors[lastDigit];
-}
 
 function Home() {
     const navigate = useNavigate();
@@ -171,7 +165,7 @@ function Home() {
                         userName={post.user_name}
                         userId={`${post.user_id}`}
                         userIcon={post.user_icon || myIcon}
-                        avatarColor={getAvatarColor(post.user_db_id)}
+                        userDatabaseId={post.user_db_id}
                         fortuneIcon={fortuneImages[post.fortune_image] || kyouKichi}
                         characterImage={characterImages[post.character_image] || kaba}
                         characterName={post.character_name}

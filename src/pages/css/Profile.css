@@ -11,11 +11,15 @@
     display: flex;
     gap: 20px;
     min-width: 0;
-    img {
+    .profile-avatar {
         width: 100px;
         height: 100px;
         border-radius: 100%;
         border: 0.2px solid #bbb;
+        object-fit: cover;
+    }
+    .profile-avatar.user-avatar--generated {
+        font-size: 40px;
     }
     .profile_text {
         /* Allow the statistics area to use only the remaining viewport width. */

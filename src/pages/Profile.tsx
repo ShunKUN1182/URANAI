@@ -21,6 +21,7 @@ import bakaKichi from "../assets/rarelyIcons/baka_kichi.png";
 import daiKichi from "../assets/rarelyIcons/rarely_icon_daikiti.png";
 import tyuukichi from "../assets/rarelyIcons/icon_tyuukiti.png";
 import { Link } from "react-router-dom";
+import UserAvatar from "../components/UserAvatar";
 
 type User = {
     id: number;
@@ -122,7 +123,12 @@ function Profile() {
             <div className="header"></div>
             <main>
                 <div className="profile_wrap">
-                    <img src={user?.icon || myIcon} alt="" />
+                    <UserAvatar
+                        userDatabaseId={user?.id}
+                        userName={user?.user_name || "プロフィール"}
+                        userIcon={user?.icon || myIcon}
+                        className="profile-avatar"
+                    />
                     <div className="profile_text">
                         <h2>{user?.user_name || "プロフィール"}</h2>
                         <div className="follow_wrap">
@@ -161,6 +167,7 @@ function Profile() {
                         userName={user?.user_name || "プロフィール"}
                         userId={user ? `${user.user_id}` : ""}
                         userIcon={user?.icon || myIcon}
+                        userDatabaseId={user?.id}
                         fortuneIcon={fortuneImages[fortune.fortune_image] || kyouKichi}
                         characterImage={characterImages[fortune.character_image] || kaba}
                         characterName={fortune.character_name}
