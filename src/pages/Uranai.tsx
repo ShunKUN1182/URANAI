@@ -45,6 +45,8 @@ function Uranai() {
         jii_kichi: jii_kichi,
         baka_kichi: baka_kichi,
         kyou_kichi: kyou_kichi,
+        dai_kichi: dai_kichi,
+        tyu_kichi: tyu_kichi,
     };
 
     async function getFortune() {
