@@ -8,9 +8,9 @@
 
 .profile_wrap {
     margin: 120px 20px 0;
-    margin-left: 20px;
     display: flex;
     gap: 20px;
+    min-width: 0;
     img {
         width: 100px;
         height: 100px;
@@ -18,6 +18,9 @@
         border: 0.2px solid #bbb;
     }
     .profile_text {
+        /* Allow the statistics area to use only the remaining viewport width. */
+        min-width: 0;
+        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -26,8 +29,10 @@
         }
         .follow_wrap {
             display: flex;
+            min-width: 0;
             gap: 24px;
             div {
+                min-width: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -87,4 +92,11 @@
         border-radius: 4px;
         background: linear-gradient(0deg, #f0be19 0%, #edde5d 100%);
     }
+}
+
+.profile_status {
+    margin: 24px 20px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
 }
