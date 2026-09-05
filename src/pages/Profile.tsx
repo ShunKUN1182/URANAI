@@ -6,12 +6,20 @@ import Post from "../components/Post";
 import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";
 import hitujii from "../assets/characters/hitujii.png";
+import goriyasu from "../assets/characters/goriyasu.png";
+import azarasi from "../assets/characters/azarasi.png";
+import drinkun from "../assets/characters/drinkun.png";
+import soccerball from "../assets/characters/soccerBall.png";
+import monariza from "../assets/characters/monariza.jpg";
+import susimaru from "../assets/characters/susimaru.png";
 import kyouKichi from "../assets/rarelyIcons/kyou_kichi.png";
 import kabaKichi from "../assets/rarelyIcons/kaba_kichi.png";
 import reiKichi from "../assets/rarelyIcons/rei_kichi.png";
 import hitujiKichi from "../assets/rarelyIcons/hituji_kichi.png";
 import jiiKichi from "../assets/rarelyIcons/jii_kichi.png";
 import bakaKichi from "../assets/rarelyIcons/baka_kichi.png";
+import daiKichi from "../assets/rarelyIcons/rarely_icon_daikiti.png";
+import tyuukichi from "../assets/rarelyIcons/icon_tyuukiti.png";
 import { Link } from "react-router-dom";
 
 type User = {
@@ -37,6 +45,12 @@ const characterImages: Record<string, string> = {
     kaba,
     ghost,
     hitujii,
+    goriyasu,
+    azarasi,
+    drinkun,
+    soccerball,
+    monariza,
+    susimaru,
 };
 
 const fortuneImages: Record<string, string> = {
@@ -46,6 +60,8 @@ const fortuneImages: Record<string, string> = {
     hituji_kichi: hitujiKichi,
     jii_kichi: jiiKichi,
     baka_kichi: bakaKichi,
+    dai_kichi: daiKichi,
+    tyu_kichi: tyuukichi,
 };
 
 function Profile() {
@@ -143,7 +159,7 @@ function Profile() {
                     <Post
                         key={fortune.id}
                         userName={user?.user_name || "プロフィール"}
-                        userId={user ? `@${user.user_id}` : ""}
+                        userId={user ? `${user.user_id}` : ""}
                         userIcon={user?.icon || myIcon}
                         fortuneIcon={fortuneImages[fortune.fortune_image] || kyouKichi}
                         characterImage={characterImages[fortune.character_image] || kaba}

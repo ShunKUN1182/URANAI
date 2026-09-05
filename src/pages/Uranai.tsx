@@ -13,6 +13,12 @@ import baka_kichi from "../assets/rarelyIcons/baka_kichi.png";
 import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";
 import hitujii from "../assets/characters/hitujii.png";
+import goriyasu from "../assets/characters/goriyasu.png";
+import azarasi from "../assets/characters/azarasi.png";
+import drinkun from "../assets/characters/drinkun.png";
+import soccerball from "../assets/characters/soccerBall.png";
+import monariza from "../assets/characters/monariza.jpg";
+import susimaru from "../assets/characters/susimaru.png";
 
 function Uranai() {
     const [isResultVisible, setIsResultVisible] = useState(false);
@@ -23,6 +29,12 @@ function Uranai() {
         kaba: kaba,
         ghost: ghost,
         hitujii: hitujii,
+        goriyasu: goriyasu,
+        azarasi: azarasi,
+        drinkun: drinkun,
+        soccerball: soccerball,
+        monariza: monariza,
+        susimaru: susimaru,
     };
     const fortuneImages: { [key: string]: string } = {
         kaba_kichi: kaba_kichi,
