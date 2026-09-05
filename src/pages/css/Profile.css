@@ -93,3 +93,10 @@
         background: linear-gradient(0deg, #f0be19 0%, #edde5d 100%);
     }
 }
+
+.profile_status {
+    margin: 24px 20px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
