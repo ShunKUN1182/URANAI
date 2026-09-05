@@ -71,10 +71,20 @@ function Home() {
     const loadMoreRef = useRef<HTMLDivElement>(null);
     const isRequestingRef = useRef(false);
     const hasRequestedInitialRef = useRef(false);
+    const hasShownLoginAlertRef = useRef(false);
     const [posts, setPosts] = useState<FeedPost[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const loggedInUser = (() => {
+        try {
+            return JSON.parse(localStorage.getItem("user") || "null") as { id?: number | string } | null;
+        } catch {
+            return null;
+        }
+    })();
+    const hasLoginInfo = Boolean(loggedInUser);
+    const isExhibitionUser = Number(loggedInUser?.id) === 13 || Number(loggedInUser?.id) === 14;
 
     const loadPosts = useCallback(async () => {
         if (isRequestingRef.current || !hasMore) {
@@ -108,24 +118,33 @@ function Home() {
     }, [hasMore, posts.length]);
 
     useEffect(() => {
+        if (!hasLoginInfo) {
+            if (!hasShownLoginAlertRef.current) {
+                hasShownLoginAlertRef.current = true;
+                window.alert("ログインしてください。");
+            }
+            navigate("/login", { replace: true });
+            return;
+        }
+
         const todayString = new Date().toLocaleDateString();
         if (localStorage.getItem("todayLogin") !== todayString) {
             navigate("/uranai");
             localStorage.setItem("todayLogin", todayString);
         }
-    }, [navigate]);
+    }, [hasLoginInfo, navigate]);
 
     useEffect(() => {
-        if (hasRequestedInitialRef.current) {
+        if (!hasLoginInfo || hasRequestedInitialRef.current) {
             return;
         }
         hasRequestedInitialRef.current = true;
         void loadPosts();
-    }, [loadPosts]);
+    }, [hasLoginInfo, loadPosts]);
 
     useEffect(() => {
         const target = loadMoreRef.current;
-        if (!target || !hasMore) {
+        if (!hasLoginInfo || !target || !hasMore) {
             return;
         }
 
@@ -140,7 +159,7 @@ function Home() {
 
         observer.observe(target);
         return () => observer.disconnect();
-    }, [hasMore, loadPosts]);
+    }, [hasLoginInfo, hasMore, loadPosts]);
 
     return (
         <>
@@ -170,6 +189,12 @@ function Home() {
                         "すべての投稿を表示しました。"}
                 </div>
             </main>
+            {isExhibitionUser && (
+                <button className="exhibition-fortune-button" type="button" onClick={() => navigate("/uranai")}>
+                    <span aria-hidden="true">✦</span>
+                    今すぐ占う！
+                </button>
+            )}
             <Footer />
         </>
     );

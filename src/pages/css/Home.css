@@ -5,3 +5,27 @@
     font-size: 14px;
     text-align: center;
 }
+
+.exhibition-fortune-button {
+    position: fixed;
+    right: 16px;
+    bottom: 84px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f0be19, #edde5d);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+    color: #473300;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media (min-width: 391px) {
+    .exhibition-fortune-button {
+        right: calc(50% - 175px);
+    }
+}
