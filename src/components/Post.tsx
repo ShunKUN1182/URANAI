@@ -4,6 +4,7 @@ type PostProps = {
     userName: string;
     userId: string;
     userIcon: string;
+    avatarColor?: string;
     fortuneIcon: string;
     characterImage: string;
     characterName: string;
@@ -14,6 +15,7 @@ function Post({
     userName,
     userId,
     userIcon,
+    avatarColor,
     fortuneIcon,
     characterImage,
     characterName,
@@ -22,7 +24,13 @@ function Post({
     return (
         <>
             <div className="card_box">
-                <img src={userIcon ? userIcon : "./"} alt="仮" className="icon" />
+                {avatarColor ? (
+                    <div className="icon generated_icon" style={{ backgroundColor: avatarColor }} aria-label={`${userName}のアイコン`}>
+                        {userName.slice(0, 1)}
+                    </div>
+                ) : (
+                    <img src={userIcon ? userIcon : "./"} alt={`${userName}のアイコン`} className="icon" />
+                )}
                 <div className="card_wrap">
                     <div className="card_head">
                         <div className="card_text">

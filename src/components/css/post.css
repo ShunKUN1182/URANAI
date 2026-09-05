@@ -11,6 +11,15 @@
         border-radius: 100%;
         border: 0.2px solid #bbb;
     }
+    .generated_icon {
+        display: flex;
+        flex: 0 0 50px;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+    }
     .card_wrap {
         /* `flex: 1` accounts for the icon and the parent `gap`, unlike the
            previous width calculation which made the card extend to the right. */
