@@ -9,6 +9,8 @@ import rei_kichi from "../assets/rarelyIcons/rei_kichi.png";
 import hituji_kichi from "../assets/rarelyIcons/hituji_kichi.png";
 import jii_kichi from "../assets/rarelyIcons/jii_kichi.png";
 import baka_kichi from "../assets/rarelyIcons/baka_kichi.png";
+import dai_kichi from "../assets/rarelyIcons/rarely_icon_daikiti.png";
+import tyu_kichi from "../assets/rarelyIcons/icon_tyuukiti.png";
 
 import kaba from "../assets/characters/kaba.png";
 import ghost from "../assets/characters/ghost.png";
