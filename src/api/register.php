@@ -30,7 +30,7 @@ $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
 $userId = "@user_" . bin2hex(random_bytes(4));
 
 try {
-  $sql = "
+  $sql = "try
         INSERT INTO users (
             email,
             user_id,
